@@ -114,7 +114,9 @@ function hide_submit_attach_js_css(&$form) {
  * Implements hook_form_alter().
  */
 function hide_submit_form_alter(&$form, &$form_state, $form_id) {
-  if (user_access('bypass hide submit') && 1 != $GLOBALS['user']->uid) {
+  global $user;  
+  
+  if (user_access('bypass hide submit') && (int) $user->uid != 1) {
     return;
   }
   if (hide_submit_add_settings()) {

@@ -29,11 +29,10 @@ function hide_submit_settings() {
   );
 
   $form['hide_submit_reset_time'] = array(
-    '#type' => 'textfield',
+    '#type' => 'number',
     '#title' => t('Reset buttons after some time (ms).'),
     '#description' => t('Enter a value in milliseconds after which all buttons will be enabled. To disable this enter 0.'),
-    '#default_value' => $config->get('hide_submit_reset_time'),
-    '#element_validate' => array('_hide_submit_is_numeric'),
+    '#default_value' => $config->get('hide_submit_reset_time'),    
     '#required' => TRUE,
   );
 
@@ -127,21 +126,12 @@ function hide_submit_settings() {
   );
 
   $form['hide_submit_indicator']['hide_submit_spinner_lines'] = array(
-    '#type' => 'textfield',
+    '#type' => 'number',
     '#title' => t('The number of lines for the spinner'),
-    '#default_value' => $config->get('hide_submit_spinner_lines'),
-    '#element_validate' => array('_hide_submit_is_numeric'),
+    '#default_value' => $config->get('hide_submit_spinner_lines'),    
   );
 
   return system_settings_form($form);
 }
 
-/**
- * @todo Please document this function.
- * @see http://drupal.org/node/1354
- */
-function _hide_submit_is_numeric($element, &$form_state, $form) {
-  if (!is_numeric($element['#value']) || !ctype_digit($element['#value'])) {
-    form_error($element, t('This field only accepts integers.'));
-  }
-}
+
