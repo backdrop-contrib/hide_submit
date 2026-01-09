@@ -1,9 +1,13 @@
-Hide Submit Button
-==================
+Hide Submit
+===========
 
-Hide submit module provides a way to hide the submit button in forms after
-it has been clicked. This helps to prevent duplicate postings from people who
-accidentally double click (or triple click) on a submit button.
+Hide Submit provides a way to disable and/or hide the submit/save button in forms after
+it has been clicked.  It can also display a progress spinner and "Processing..." 
+text in place of the submit button.
+
+This helps to prevent duplicate postings from people who accidentally double click 
+(or triple click) on a submit button.
+
 
 Installation 
 ------------
@@ -11,27 +15,21 @@ Installation
 - Install this module using the official Backdrop CMS instructions at
   https://docs.backdropcms.org/documentation/extend-with-modules.
 
-- Visit the configuration page under Administration > Configuration > Content authoring > Hide submit settings (admin/config/content/hide-submit) and enter the required information.
+- To configure, visit: Administration > Configuration > Content authoring > Hide submit settings (admin/config/content/hide-submit).
 
-- There are no module dependencies and no database tables created.
-
-- Uninstalling the module will remove the variables created by the module.
-
-Documentation 
--------------
-
-Additional documentation is located in [the Wiki](https://github.com/backdrop-contrib/hide-submit/wiki/Documentation).
 
 Issues 
 ------
 
-Bugs and feature requests should be reported in [the Issue Queue](https://github.com/backdrop-contrib/hide-sibmit/issues).
+Bugs and feature requests should be reported in [the Issue Queue](https://github.com/backdrop-contrib/hide-submit/issues).
+
 
 Current Maintainers
 -------------------
 
 - [Paula Gray-Overtoom](https://github.com/pgrayove-mcpl).
 - Seeking additional maintainers.
+
 
 Credits
 -------
