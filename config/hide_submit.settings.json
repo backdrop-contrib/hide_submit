@@ -11,5 +11,6 @@
     "hide_submit_spinner_lines": "12",
     "hide_submit_status": true,
     "hide_submit_css": "hide-submit-disable",
-    "hide_submit_hide_css": "hide-submit-processing"
+    "hide_submit_hide_css": "hide-submit-processing",
+    "hide_submit_exclude_paths": "admin/*"
 }

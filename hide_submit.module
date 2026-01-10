@@ -33,6 +33,7 @@ function hide_submit_add_settings() {
     $hide_submit_settings = array('hide_submit' => array(
         'hide_submit_status' => $config->get('hide_submit_status'),
         'hide_submit_method' => $config->get('hide_submit_method'),
+        'hide_submit_exclude_paths' => $config->get('hide_submit_exclude_paths'),
         'hide_submit_css' => $config->get('hide_submit_css'),
         'hide_submit_abtext' => t($config->get('hide_submit_abtext')),
         'hide_submit_atext' => t($config->get('hide_submit_atext')),
@@ -60,6 +61,16 @@ function hide_submit_add_settings() {
     'admin/structure/views',
     'admin/structure/views/*',
   );
+  
+  // Add anything in our "exclude_paths" setting to our list of urls to exclude as well.
+  $temp = explode("\n", $config->get('hide_submit_exclude_paths') ?? '');
+  foreach ($temp as $line) {
+    $line = trim($line);
+    if ($line == '') continue;
+    $urls[] = $line;
+  }
+    
+  
   $patterns = implode("\n", $urls);
 
   if (backdrop_match_path($path, $patterns) || backdrop_match_path($path_alias, $patterns)) {

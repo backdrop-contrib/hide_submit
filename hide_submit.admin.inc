@@ -16,7 +16,15 @@ function hide_submit_settings() {
   $form = array();
   $form['#config'] = 'hide_submit.settings';
 
-  $form['hide_submit_method'] = array(
+  $form['hide_submit_basics_fs'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Basic settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  
+  
+  $form['hide_submit_basics_fs']['hide_submit_method'] = array(
     '#type' => 'select',
     '#options' => array(
       'disable' => t('Disable the submit buttons.'),
@@ -28,7 +36,7 @@ function hide_submit_settings() {
     '#description' => t('Choose the blocking method.'),
   );
 
-  $form['hide_submit_reset_time'] = array(
+  $form['hide_submit_basics_fs']['hide_submit_reset_time'] = array(
     '#type' => 'number',
     '#title' => t('Reset buttons after some time (ms).'),
     '#description' => t('Enter a value in milliseconds after which all buttons will be enabled. To disable this enter 0.'),
@@ -36,6 +44,20 @@ function hide_submit_settings() {
     '#required' => TRUE,
   );
 
+
+  $form['hide_submit_basics_fs']['hide_submit_exclude_paths'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Exclude paths'),
+    '#default_value' => $config->get('hide_submit_exclude_paths'),
+    '#description' => t('Enter paths, one per line, where this module should not function. Wildcards are allowed. 
+                          <br>Ex: admin/*
+                          <br>It is recommended to exclude <strong>admin/*</strong>, as this module can interfere with some admin
+                          forms.'),
+  );
+  
+  
+  
+  
   $form['hide_submit_disable'] = array(
     '#type' => 'fieldset',
     '#title' => t('Disabling settings'),
